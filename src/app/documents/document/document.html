@@ -1,0 +1,47 @@
+<header class="document-toolbar">
+  <mat-toolbar>
+    <button matIconButton>
+      <mat-icon>description</mat-icon>
+    </button>
+
+    <div class="document-title">{{ document().name }}</div>
+
+    <button mat-button color="primary" (click)="addAnnotation()">
+      Add annotation<mat-icon iconPositionEnd>note_add</mat-icon>
+    </button>
+
+    <button mat-flat-button [disabled]="!annotations.length" (click)="save()">Save</button>
+
+    <div class="document-scale-panel">
+      <div>{{ scalePercent() }}%</div>
+
+      <button matIconButton (click)="zoomOut()">
+        <mat-icon>zoom_out</mat-icon>
+      </button>
+
+      <button matIconButton (click)="zoomIn()">
+        <mat-icon>zoom_in</mat-icon>
+      </button>
+    </div>
+  </mat-toolbar>
+</header>
+
+<mat-divider></mat-divider>
+
+<section class="document-viewport" #documentViewport>
+  <div
+    class="document-container"
+    (dragover)="onDragOver($event)"
+    (drop)="onDrop($event)"
+    [style.transform]="'scale(' + scale() + ')'"
+    #documentContainer
+  >
+    <ng-container #annotationsHost></ng-container>
+
+    @for (page of document().pages; track page.number) {
+      <div class="document-page">
+        <img [ngSrc]="'documents/1/' + page.imageUrl" alt="" [width]="794" [height]="1123" />
+      </div>
+    }
+  </div>
+</section>

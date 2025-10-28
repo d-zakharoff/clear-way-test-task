@@ -1,0 +1,21 @@
+:host {
+  position: absolute;
+  z-index: 3;
+  display: flex;
+}
+
+.annotation-input {
+  background: rgba(247, 255, 2, 0.5);
+  padding: 0.2rem 0.5rem;
+  border-radius: 5px;
+  border: 0;
+  outline-color: rgba(255, 137, 2, 0.5);
+}
+
+.delete-annotation-button {
+  --mat-icon-button-state-layer-size: 14px;
+
+  mat-icon {
+    font-size: 14px;
+  }
+}

@@ -1,0 +1,40 @@
+.document-toolbar {
+  mat-toolbar {
+    gap: 1rem;
+  }
+
+  .document-title {
+    flex-grow: 1;
+  }
+
+  .document-scale-panel {
+    display: flex;
+    gap: 0.2rem;
+    align-items: center;
+  }
+}
+
+.document-viewport {
+  display: flex;
+  justify-content: center;
+  height: calc(100vh - var(--mat-toolbar-standard-height, 64px) - 1px);
+  overflow-y: auto;
+  overflow-x: hidden;
+  box-sizing: border-box;
+  position: relative;
+}
+
+.document-container {
+  display: flex;
+  gap: 1rem;
+  padding: 1rem 0;
+  align-items: center;
+  flex-direction: column;
+  transform-origin: top center;
+}
+
+.document-page {
+  display: flex;
+  position: relative;
+  border: 1px solid var(--mat-sys-outline-variant);
+}
